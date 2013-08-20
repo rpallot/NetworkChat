@@ -44,7 +44,6 @@ public class Login extends JFrame {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 		setResizable(false);
 		setTitle("Network Chat - Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -110,8 +109,8 @@ public class Login extends JFrame {
 	}
 	
 	private void login(String name, String address, int port) {
-		dispose();
-		System.out.println(name + ", " + address + ", " + port);
+		new Client(name, address, port);
+		setVisible(false);
 	}
 	
 }
