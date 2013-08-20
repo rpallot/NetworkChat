@@ -1,13 +1,17 @@
 package com.rpallot.networkchat;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
 
 public class Login extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -58,6 +62,7 @@ public class Login extends JFrame {
 		txtName.setColumns(10);
 		
 		JLabel lblName = new JLabel("Name:");
+		lblName.setHorizontalAlignment(SwingConstants.CENTER);
 		lblName.setBounds(122, 50, 50, 14);
 		contentPane.add(lblName);
 		
@@ -67,10 +72,12 @@ public class Login extends JFrame {
 		contentPane.add(txtServer);
 		
 		lblServer = new JLabel("Server:");
+		lblServer.setHorizontalAlignment(SwingConstants.CENTER);
 		lblServer.setBounds(122, 100, 50, 14);
 		contentPane.add(lblServer);
 		
 		lblPort = new JLabel("Port:");
+		lblPort.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPort.setBounds(122, 150, 50, 14);
 		contentPane.add(lblPort);
 		
@@ -80,6 +87,7 @@ public class Login extends JFrame {
 		contentPane.add(txtPort);
 		
 		lblPassword = new JLabel("Password:");
+		lblPassword.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPassword.setBounds(122, 200, 50, 14);
 		contentPane.add(lblPassword);
 		
@@ -87,5 +95,23 @@ public class Login extends JFrame {
 		txtPass.setColumns(10);
 		txtPass.setBounds(57, 220, 180, 20);
 		contentPane.add(txtPass);
+		
+		JButton btnLogin = new JButton("Login");
+		btnLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String name = txtName.getText();
+				String server = txtServer.getText();
+				int port = Integer.parseInt(txtPort.getText());
+				login(name, server, port);
+			}
+		});
+		btnLogin.setBounds(102, 290, 89, 23);
+		contentPane.add(btnLogin);
 	}
+	
+	private void login(String name, String address, int port) {
+		dispose();
+		System.out.println(name + ", " + address + ", " + port);
+	}
+	
 }
